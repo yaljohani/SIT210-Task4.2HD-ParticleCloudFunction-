@@ -1,0 +1,45 @@
+int red = D4;
+int green = D3;
+int blue = D2;
+
+
+
+void setup()
+{
+
+   pinMode(red, OUTPUT);
+   pinMode(green, OUTPUT);
+   pinMode(blue, OUTPUT);
+   
+   Particle.function("traficlight",button);
+   
+}
+
+
+void loop()
+{
+   // Nothing
+}
+
+int button(String c) {
+
+
+    if (c=="RED") {
+        digitalWrite(red, HIGH);
+        digitalWrite(green, LOW);
+        digitalWrite(blue, LOW);
+    }
+    if (c=="GREEN") {
+        digitalWrite(green,  HIGH);
+        digitalWrite(red, LOW);
+        digitalWrite(blue, LOW);
+    }
+    if (c=="BLUE") {
+        digitalWrite(blue, HIGH);
+        digitalWrite(green, LOW);
+        digitalWrite(red, LOW);
+    }
+    else {
+        return -1;
+    }
+}
